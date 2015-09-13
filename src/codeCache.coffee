@@ -22,7 +22,7 @@ module.exports = (platform, cache, value) ->
 			when "bool" then return "" + value.primitive.value
 			when "float"
 				temp = "" + value.primitive.value
-				if Number.isInteger value.primitive.value then temp += ".0"
+				if (temp.indexOf ".") is -1 then temp += ".0"
 				return temp
 	for cached in cache
 		if module.exports.toolchain.valuesEquivalent platform, cached.value, value
