@@ -1,4 +1,4 @@
 describe "platforms", ->
 	describe "javascript", ->
-		libraries = require "./../../sunruse-influx-libraries/index"
+		libraries = require "sunruse-influx-libraries"
 		libraries.selfTest (require "./types")()

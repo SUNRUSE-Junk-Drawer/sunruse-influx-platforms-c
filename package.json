@@ -4,8 +4,9 @@
   "description": "A platform implementation for SUNRUSE.influx which generates JavaScript source code.",
   "main": "deploy/types.js",
   "dependencies": {
-    "sunruse-influx-toolchain": "^1.0.2",
-    "sunruse-influx-platforms-helpers": "^0.0.1"
+    "sunruse-influx-libraries": "0.0.0",
+    "sunruse-influx-platforms-helpers": "^0.0.1",
+    "sunruse-influx-toolchain": "^1.0.2"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -20,7 +21,9 @@
     "test": "grunt build test",
     "prepublish": "grunt build test deploy"
   },
-  "files": ["deploy"],
+  "files": [
+    "deploy"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SUNRUSE/sunruse-influx-platforms-javascript.git"
