@@ -4,6 +4,7 @@ module.exports = ->
 		module.exports.helpers.makeUnorderedBinary "and", "bool", "bool", ((a, b) -> a and b), (platform, cache, value) -> "(" + (module.exports.codeCache platform, cache, value.properties.a) + ") && (" + (module.exports.codeCache platform, cache, value.properties.b) + ")"
 		module.exports.helpers.makeUnorderedBinary "or", "bool", "bool", ((a, b) -> a or b), (platform, cache, value) -> "(" + (module.exports.codeCache platform, cache, value.properties.a) + ") || (" + (module.exports.codeCache platform, cache, value.properties.b) + ")"
 		module.exports.helpers.makeUnorderedBinary "equal", "bool", "bool", ((a, b) -> a is b), (platform, cache, value) -> "(" + (module.exports.codeCache platform, cache, value.properties.a) + ") == (" + (module.exports.codeCache platform, cache, value.properties.b) + ")"
+		module.exports.helpers.makeUnorderedBinary "xor", "bool", "bool", ((a, b) -> a isnt b), (platform, cache, value) -> "(" + (module.exports.codeCache platform, cache, value.properties.a) + ") != (" + (module.exports.codeCache platform, cache, value.properties.b) + ")"
 	]
 
 module.exports.codeCache = require "./../codeCache"

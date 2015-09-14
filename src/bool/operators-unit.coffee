@@ -109,6 +109,33 @@ describe "platforms", ->
 									b: "Test Input B"	
 							expect unorderedBinaries.or.args[4] "Test Platform", "Test Cache", input
 								.toEqual "(Test Code A) || (Test Code B)"
+					describe "xor", ->
+						it "is returned", ->
+							xor = (func for func in functions when func.name is "xor")
+							expect(xor.length).toEqual 1
+							expect(xor[0]).toBe unorderedBinaries.xor.result
+							expect unorderedBinaries.xor.args
+								.toEqual ["xor", "bool", "bool", (jasmine.any Function), (jasmine.any Function)]
+						
+						it "supports constant inputs for false, false", ->
+							expect(unorderedBinaries.xor.args[3] false, false).toBe false  
+							
+						it "supports constant inputs for true, false", ->
+							expect(unorderedBinaries.xor.args[3] true, false).toBe true
+							
+						it "supports constant inputs for false, true", ->
+							expect(unorderedBinaries.xor.args[3] false, true).toBe true  
+							
+						it "supports constant inputs for true, true", ->
+							expect(unorderedBinaries.xor.args[3] true, true).toBe false  														  
+							
+						it "supports native code generation", ->				
+							input = 
+								properties:
+									a: "Test Input A"
+									b: "Test Input B"	
+							expect unorderedBinaries.xor.args[4] "Test Platform", "Test Cache", input
+								.toEqual "(Test Code A) != (Test Code B)"
 					describe "equal", ->
 						it "is returned", ->
 							equal = (func for func in functions when func.name is "equal")

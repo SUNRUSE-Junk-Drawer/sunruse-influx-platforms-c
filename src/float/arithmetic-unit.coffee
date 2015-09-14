@@ -141,3 +141,57 @@ describe "platforms", ->
 						it "supports native code generation", ->
 							expect unaries.negate.args[4] "Test Platform", "Test Cache", "Test Input"
 								.toEqual "-(Test Code)"																		
+					describe "squareRoot", ->
+						it "is returned", ->
+							squareRoot = (func for func in functions when func.name is "squareRoot")
+							expect(squareRoot.length).toEqual 1
+							expect(squareRoot[0]).toBe unaries.squareRoot.result
+							expect unaries.squareRoot.args
+								.toEqual ["squareRoot", "float", "float", (jasmine.any Function), (jasmine.any Function)]
+						
+						it "supports constant inputs", ->
+							expect(unaries.squareRoot.args[3] 12.25).toBeCloseTo 3.5
+						
+						it "supports native code generation", ->
+							expect unaries.squareRoot.args[4] "Test Platform", "Test Cache", "Test Input"
+								.toEqual "Math.sqrt(Test Code)"		
+					describe "floor", ->
+						it "is returned", ->
+							floor = (func for func in functions when func.name is "floor")
+							expect(floor.length).toEqual 1
+							expect(floor[0]).toBe unaries.floor.result
+							expect unaries.floor.args
+								.toEqual ["floor", "float", "float", (jasmine.any Function), (jasmine.any Function)]
+						
+						it "supports positive constant inputs", ->
+							expect(unaries.floor.args[3] 12.25).toBeCloseTo 12
+							
+						it "supports zero constant inputs", ->
+							expect(unaries.floor.args[3] 0.0).toBeCloseTo 0.0
+							
+						it "supports negative constant inputs", ->
+							expect(unaries.floor.args[3] -12.25).toBeCloseTo -13
+						
+						it "supports native code generation", ->
+							expect unaries.floor.args[4] "Test Platform", "Test Cache", "Test Input"
+								.toEqual "Math.floor(Test Code)"																											
+					describe "ceiling", ->
+						it "is returned", ->
+							ceiling = (func for func in functions when func.name is "ceiling")
+							expect(ceiling.length).toEqual 1
+							expect(ceiling[0]).toBe unaries.ceiling.result
+							expect unaries.ceiling.args
+								.toEqual ["ceiling", "float", "float", (jasmine.any Function), (jasmine.any Function)]
+						
+						it "supports positive constant inputs", ->
+							expect(unaries.ceiling.args[3] 12.25).toBeCloseTo 13
+							
+						it "supports zero constant inputs", ->
+							expect(unaries.ceiling.args[3] 0.0).toBeCloseTo 0.0
+							
+						it "supports negative constant inputs", ->
+							expect(unaries.ceiling.args[3] -12.25).toBeCloseTo -12
+						
+						it "supports native code generation", ->
+							expect unaries.ceiling.args[4] "Test Platform", "Test Cache", "Test Input"
+								.toEqual "Math.ceil(Test Code)"																											
