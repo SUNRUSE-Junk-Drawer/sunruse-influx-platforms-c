@@ -6,6 +6,7 @@ module.exports = ->
 		module.exports.helpers.makeUnary "arcSine", "float", "float", ((value) -> Math.asin(value)), (platform, cache, value) -> "Math.asin(" + (module.exports.codeCache platform, cache, value) + ")"
 		module.exports.helpers.makeUnary "arcCosine", "float", "float", ((value) -> Math.acos(value)), (platform, cache, value) -> "Math.acos(" + (module.exports.codeCache platform, cache, value) + ")"
 		module.exports.helpers.makeUnary "arcTangent", "float", "float", ((value) -> Math.atan(value)), (platform, cache, value) -> "Math.atan(" + (module.exports.codeCache platform, cache, value) + ")"
+		module.exports.helpers.makeOrderedBinary "arcTangent2", "float", "float", ((a, b) -> Math.atan2 a, b), (platform, cache, value) -> "Math.atan2((" + (module.exports.codeCache platform, cache, value.properties.a) + "), (" + (module.exports.codeCache platform, cache, value.properties.b) + "))"
 	]
 
 module.exports.codeCache = require "./../codeCache"

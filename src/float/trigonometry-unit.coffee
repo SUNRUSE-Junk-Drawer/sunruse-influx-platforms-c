@@ -326,3 +326,46 @@ describe "platforms", ->
 						it "supports native code generation", ->
 							expect unaries.arcTangent.args[4] "Test Platform", "Test Cache", "Test Input"
 								.toEqual "Math.atan(Test Code)"		
+								
+					describe "arcTangent2", ->
+						it "is returned", ->
+							arcTangent2 = (func for func in functions when func.name is "arcTangent2")
+							expect(arcTangent2.length).toEqual 1
+							expect(arcTangent2[0]).toBe orderedBinaries.arcTangent2.result
+							expect orderedBinaries.arcTangent2.args
+								.toEqual ["arcTangent2", "float", "float", (jasmine.any Function), (jasmine.any Function)]
+						
+						it "supports constant inputs (north)", ->
+							expect(orderedBinaries.arcTangent2.args[3] 0.0, 7.0).toBeCloseTo 0.0
+						
+						it "supports constant inputs (north-east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] 3.0, 3.0).toBeCloseTo 0.7853981633974483
+							
+						it "supports constant inputs (east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] 5.0, 0.0).toBeCloseTo 1.5707963267948966
+							
+						it "supports constant inputs (south-east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] 6.0, -6.0).toBeCloseTo 2.356194490192345
+							
+						it "supports constant inputs (south)", ->
+							expect(orderedBinaries.arcTangent2.args[3] 0.0, -2.0).toBeCloseTo 3.141592653589793
+							
+						it "supports constant inputs (north-east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] -3.0, 3.0).toBeCloseTo -0.7853981633974483
+							
+						it "supports constant inputs (east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] -5.0, 0.0).toBeCloseTo -1.5707963267948966
+							
+						it "supports constant inputs (south-east)", ->
+							expect(orderedBinaries.arcTangent2.args[3] -6.0, -6.0).toBeCloseTo -2.356194490192345
+							
+						it "supports constant inputs (south)", ->
+							expect(orderedBinaries.arcTangent2.args[3] -0.000001, -2.0).toBeCloseTo -3.141592653589793
+						
+						it "supports native code generation", ->
+							input = 
+								properties:
+									a: "Test Input A"
+									b: "Test Input B"	
+							expect orderedBinaries.arcTangent2.args[4] "Test Platform", "Test Cache", input
+								.toEqual "Math.atan2((Test Code A), (Test Code B))"	
