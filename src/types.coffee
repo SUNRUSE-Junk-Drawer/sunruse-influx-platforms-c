@@ -5,6 +5,7 @@ module.exports = ->
 			.concat (require "./float/arithmetic")()
 			.concat (require "./float/comparisons")()
 			.concat (require "./float/trigonometry")()
+			.concat (require "./float/exponents")()
 			.concat (require "./bool/operators")()
 			.concat (require "./switches")()
 			.concat (require "./conversions")()    
