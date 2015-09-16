@@ -5,7 +5,7 @@
   "main": "deploy/types.js",
   "dependencies": {
     "sunruse-influx-libraries": "0.0.0",
-    "sunruse-influx-platforms-helpers": "^0.0.1",
+    "sunruse-influx-platforms-helpers": "0.0.2",
     "sunruse-influx-toolchain": "^1.0.2"
   },
   "devDependencies": {
