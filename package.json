@@ -1,6 +1,6 @@
 {
   "name": "sunruse-influx-platforms-javascript",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A platform implementation for SUNRUSE.influx which generates JavaScript source code.",
   "main": "deploy/types.js",
   "dependencies": {

@@ -2,6 +2,7 @@ module.exports = ->
 	nativeFunctions:
 		(require "./int/arithmetic")()
 			.concat (require "./int/comparisons")()
+			.concat (require "./int/exponents")()
 			.concat (require "./float/arithmetic")()
 			.concat (require "./float/comparisons")()
 			.concat (require "./float/trigonometry")()
