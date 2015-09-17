@@ -73,4 +73,4 @@ describe "platforms", ->
 									base: "Test Input A"
 									exponent: "Test Input B"	
 							expect orderedBinaries.exponentiate.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.pow(Test Code A, Test Code B)"		
+								.toEqual "(int)pow(Test Code A, Test Code B)"		

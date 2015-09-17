@@ -67,7 +67,7 @@ describe "platforms", ->
 					
 					it "supports native code generation", ->
 						expect unaries.toFloat.args[4] "Test Platform", "Test Cache", "Test Input"
-							.toEqual "(Test Code)"																		
+							.toEqual "(float)(Test Code)"																		
 							
 				describe "toInt", ->
 					it "is returned", ->
@@ -94,7 +94,7 @@ describe "platforms", ->
 					
 					it "supports native code generation", ->
 						expect unaries.toInt.args[4] "Test Platform", "Test Cache", "Test Input"
-							.toEqual "Math.round(Test Code)"																		
+							.toEqual "(int)roundf(Test Code)"																		
 							
 				describe "toIntUp", ->
 					it "is returned", ->
@@ -121,7 +121,7 @@ describe "platforms", ->
 					
 					it "supports native code generation", ->
 						expect unaries.toIntUp.args[4] "Test Platform", "Test Cache", "Test Input"
-							.toEqual "Math.ceil(Test Code)"				
+							.toEqual "(int)ceilf(Test Code)"				
 							
 				describe "toIntDown", ->
 					it "is returned", ->
@@ -148,4 +148,4 @@ describe "platforms", ->
 					
 					it "supports native code generation", ->
 						expect unaries.toIntDown.args[4] "Test Platform", "Test Cache", "Test Input"
-							.toEqual "Math.floor(Test Code)"																	
+							.toEqual "(int)floorf(Test Code)"																	

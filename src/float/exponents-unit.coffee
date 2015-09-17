@@ -73,7 +73,7 @@ describe "platforms", ->
 									base: "Test Input A"
 									exponent: "Test Input B"	
 							expect orderedBinaries.exponentiate.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.pow(Test Code A, Test Code B)"		
+								.toEqual "powf(Test Code A, Test Code B)"		
 								
 					describe "naturalLogarithm", ->
 						it "is returned", ->
@@ -88,4 +88,4 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.naturalLogarithm.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.log(Test Code)"																											
+								.toEqual "logf(Test Code)"																											

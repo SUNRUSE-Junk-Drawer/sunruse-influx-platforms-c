@@ -130,7 +130,7 @@ describe "platforms", ->
 									a: "Test Input A"
 									b: "Test Input B"	
 							expect orderedBinaries.divide.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.round((Test Code A) / (Test Code B))"											
+								.toEqual "((Test Code A) + ((Test Code B) / 2 * (((((Test Code A) ^ (Test Code B)) & 0x80000000) >> 31) * -2 + 1))) / (Test Code B)"											
 
 					describe "divideDown", ->
 						it "is returned", ->
@@ -152,7 +152,7 @@ describe "platforms", ->
 									a: "Test Input A"
 									b: "Test Input B"	
 							expect orderedBinaries.divideDown.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.floor((Test Code A) / (Test Code B))"											
+								.toEqual "((Test Code A) - 1) / (Test Code B)"												
 								
 					describe "divideUp", ->
 						it "is returned", ->
@@ -174,7 +174,7 @@ describe "platforms", ->
 									a: "Test Input A"
 									b: "Test Input B"	
 							expect orderedBinaries.divideUp.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.ceil((Test Code A) / (Test Code B))"											
+								.toEqual "((Test Code A) - 1) / (Test Code B) + 1"											
 									
 					describe "negate", ->
 						it "is returned", ->

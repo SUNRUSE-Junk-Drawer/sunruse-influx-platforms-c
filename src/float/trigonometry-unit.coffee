@@ -122,7 +122,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.sine.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.sin(Test Code)"			
+								.toEqual "sinf(Test Code)"			
 					describe "cosine", ->
 						it "is returned", ->
 							cosine = (func for func in functions when func.name is "cosine")
@@ -190,7 +190,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.cosine.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.cos(Test Code)"			
+								.toEqual "cosf(Test Code)"			
 								
 					describe "tangent", ->
 						it "is returned", ->
@@ -244,7 +244,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.tangent.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.tan(Test Code)"			
+								.toEqual "tanf(Test Code)"			
 								
 					describe "arcSine", ->
 						it "is returned", ->
@@ -271,7 +271,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.arcSine.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.asin(Test Code)"
+								.toEqual "asinf(Test Code)"
 								
 					describe "arcCosine", ->
 						it "is returned", ->
@@ -298,7 +298,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.arcCosine.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.acos(Test Code)"
+								.toEqual "acosf(Test Code)"
 								
 					describe "arcTangent", ->
 						it "is returned", ->
@@ -325,7 +325,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.arcTangent.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.atan(Test Code)"		
+								.toEqual "atanf(Test Code)"		
 								
 					describe "arcTangent2", ->
 						it "is returned", ->
@@ -368,4 +368,4 @@ describe "platforms", ->
 									a: "Test Input A"
 									b: "Test Input B"	
 							expect orderedBinaries.arcTangent2.args[4] "Test Platform", "Test Cache", input
-								.toEqual "Math.atan2((Test Code A), (Test Code B))"	
+								.toEqual "atan2f((Test Code A), (Test Code B))"	

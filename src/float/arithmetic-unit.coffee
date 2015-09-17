@@ -154,7 +154,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.squareRoot.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.sqrt(Test Code)"		
+								.toEqual "sqrtf(Test Code)"		
 					describe "floor", ->
 						it "is returned", ->
 							floor = (func for func in functions when func.name is "floor")
@@ -174,7 +174,7 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.floor.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.floor(Test Code)"																											
+								.toEqual "floorf(Test Code)"																											
 					describe "ceiling", ->
 						it "is returned", ->
 							ceiling = (func for func in functions when func.name is "ceiling")
@@ -194,4 +194,4 @@ describe "platforms", ->
 						
 						it "supports native code generation", ->
 							expect unaries.ceiling.args[4] "Test Platform", "Test Cache", "Test Input"
-								.toEqual "Math.ceil(Test Code)"																											
+								.toEqual "ceilf(Test Code)"																											
