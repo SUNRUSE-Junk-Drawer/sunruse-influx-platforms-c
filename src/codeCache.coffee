@@ -23,7 +23,7 @@ module.exports = (platform, cache, value) ->
 			when "float"
 				temp = "" + value.primitive.value
 				if (temp.indexOf ".") is -1 then temp += ".0"
-				return temp
+				return temp + "f"
 	for cached in cache
 		if module.exports.toolchain.valuesEquivalent platform, cached.value, value
 			return cached.code
@@ -35,7 +35,7 @@ module.exports = (platform, cache, value) ->
 		created = 
 			code: "temp_" + greatest
 			value: value
-			working: "var temp_" + greatest + " = " + generated + ";"
+			working: value.native.function.output + " temp_" + greatest + " = " + generated + ";"
 		cache.push created
 		return created.code
 

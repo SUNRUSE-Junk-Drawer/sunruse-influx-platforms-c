@@ -1,4 +1,4 @@
-A platform implementation for SUNRUSE.influx which generates JavaScript source code.  The generated code assumes that the input to the compiled function is accessible via "input", and any properties are nested objects.  Here is a typical example:
+A platform implementation for SUNRUSE.influx which generates C(99) source code.  The generated code assumes that the input to the compiled function is accessible via "input", and any properties are nested structs.  Here is a typical example:
 
     helloWorld
 	    output 
@@ -12,27 +12,37 @@ A platform implementation for SUNRUSE.influx which generates JavaScript source c
 This compiles to:
 
     return {
-		test1: input.a.b,
-		test2: true,
-		nesting: {
-			test3: false,
-			test4: 5.7,
-			test5: 3
+		.test1 = input.a.b,
+		.test2 = true,
+		.nested = {
+			.test3 = false,
+			.test4 = 5.7,
+			.test5 = 3
 		}
 	};
 	
-You can therefore use the generated source code directly from the result string by creating a new JavaScript Function object:
+You can therefore use the generated source code by creating the input/output types as structs, creating the function header/footer and including the generated code using the preprocessor:
 
-    var func = new Function("input", code);
-	
-	var result = func({
-			a: {
-				b: 78749
-			}
-		});
-		
-	console.log(result.test1); // 78749
-	console.log(result.test2); // true
-	console.log(result.nesting.test3); // false
-	console.log(result.nesting.test4); // 5.7
-	console.log(result.nesting.test5); // 3
+	struct bWrapper {
+		int b;
+	};
+
+	struct functionInput {
+		bWrapper a;
+	};
+
+	struct nestedFunctionOutput {
+		bool test3;
+		float test4;
+		int test5;
+	};
+
+	struct functionOutput {
+		int test1;
+		bool test2;
+		nestedFunctionOutput nested;
+	};
+
+	functionOutput helloWorld(functionInput input) {
+		#include "path/to/generated/code.c"
+	}

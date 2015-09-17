@@ -14,7 +14,7 @@ module.exports = (platform, cache, output) ->
 			final.push indents + prefix + "{"
 			done = 0
 			for name of val.properties
-				recurseResults val.properties[name], "\"" + name + "\": ", indents + "\t", (if done is (Object.keys val.properties).length - 1 then "" else ",")
+				recurseResults val.properties[name], "." + name + " = ", indents + "\t", (if done is (Object.keys val.properties).length - 1 then "" else ",")
 				done++ 
 			final.push indents + "}" + suffix
 		else

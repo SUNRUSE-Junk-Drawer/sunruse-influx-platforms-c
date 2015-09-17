@@ -34,13 +34,13 @@ describe "platforms", ->
 									
 					expect(result).toEqual 	"""
 						return {
-							"propertyA": {
-								"propertyAA": Test Code AA,
-								"propertyAB": {
-									"propertyABA": Test Code ABA
+							.propertyA = {
+								.propertyAA = Test Code AA,
+								.propertyAB = {
+									.propertyABA = Test Code ABA
 								}
 							},
-							"propertyB": Test Code B
+							.propertyB = Test Code B
 						};
 											"""
 				it "returns the generated code given non-properties", ->

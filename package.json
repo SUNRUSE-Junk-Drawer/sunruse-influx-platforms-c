@@ -1,7 +1,7 @@
 {
-  "name": "sunruse-influx-platforms-javascript",
-  "version": "0.0.6",
-  "description": "A platform implementation for SUNRUSE.influx which generates JavaScript source code.",
+  "name": "sunruse-influx-platforms-c",
+  "version": "0.0.0",
+  "description": "A platform implementation for SUNRUSE.influx which generates C source code.",
   "main": "deploy/types.js",
   "dependencies": {
     "sunruse-influx-libraries": "0.0.0",
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/SUNRUSE/sunruse-influx-platforms-javascript.git"
+    "url": "https://github.com/SUNRUSE/sunruse-influx-platforms-c.git"
   },
   "keywords": [
     "sunruse",
@@ -43,7 +43,7 @@
   "author": "SUNRUSE",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SUNRUSE/sunruse-influx-platforms-javascript/issuess"
+    "url": "https://github.com/SUNRUSE/sunruse-influx-platforms-c/issues"
   },
-  "homepage": "https://github.com/SUNRUSE/sunruse-influx-platforms-javascript"
+  "homepage": "https://github.com/SUNRUSE/sunruse-influx-platforms-c"
 }
