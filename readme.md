@@ -11,7 +11,7 @@ A platform implementation for SUNRUSE.influx which generates C(99) source code. 
 				
 This compiles to:
 
-    return {
+    {
 		.test1 = input.a.b,
 		.test2 = true,
 		.nested = {
@@ -44,5 +44,5 @@ You can therefore use the generated source code by creating the input/output typ
 	};
 
 	functionOutput helloWorld(functionInput input) {
-		#include "path/to/generated/code.c"
+		return (functionOutput) #include "path/to/generated/code.c"
 	}

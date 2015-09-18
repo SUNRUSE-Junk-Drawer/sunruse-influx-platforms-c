@@ -33,7 +33,7 @@ describe "platforms", ->
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						return {
+						{
 							.propertyA = {
 								.propertyAA = Test Code AA,
 								.propertyAB = {
@@ -57,5 +57,5 @@ describe "platforms", ->
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						return Test Code;
+						Test Code;
 											"""					
