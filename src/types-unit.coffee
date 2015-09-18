@@ -109,10 +109,11 @@ describe "platforms", ->
 										{}
 								]
 							
-							types.resultGenerator = (platform, _cache, output) ->
+							types.resultGenerator = (platform, _cache, output, _options) ->
 								expect(platform).toEqual "Test Platform"
 								expect(_cache).toBe cache 
 								expect(output).toEqual "Test Output"
+								expect(_options).toBe options
 								cache.push {}
 								cache.push {}
 								cache.push {}
@@ -147,10 +148,11 @@ describe "platforms", ->
 										{}
 								]
 							
-							types.resultGenerator = (platform, _cache, output, options) ->
+							types.resultGenerator = (platform, _cache, output, _options) ->
 								expect(platform).toEqual "Test Platform"
 								expect(_cache).toBe cache 
 								expect(output).toEqual "Test Output"
+								expect(_options).toBe options 
 								cache.push
 									working: "Test Working A"
 								cache.push

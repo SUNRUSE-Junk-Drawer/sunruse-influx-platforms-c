@@ -3,11 +3,10 @@
 #	The array of previously generated code returned by parameterCache/used by
 #		codeCache.
 #	The output value object to generate code for.
+#	The options given to platform.compile.
 # Returns:
-#	A string representing native code specifying the return statement.  For
-#		properties this takes the form of an anonymous object, while for 
-#		primitive types the bare value is returned.
-module.exports = (platform, cache, output) ->
+#	A string representing native code specifying the return statement.  This is indented once.
+module.exports = (platform, cache, output, options) ->
 	final = []
 	recurseResults = (val, prefix, indents, suffix) ->
 		if val.properties
@@ -20,6 +19,6 @@ module.exports = (platform, cache, output) ->
 		else
 			final.push indents + prefix + (module.exports.codeCache platform, cache, val) + suffix
 	
-	recurseResults output, "return ", "\t", ";"
+	recurseResults output, "return (" + options.outputTypeName + ") ", "\t", ";"
 	final.join "\n"
 module.exports.codeCache = require "./codeCache"

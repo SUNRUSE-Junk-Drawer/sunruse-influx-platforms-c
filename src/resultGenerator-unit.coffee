@@ -1,9 +1,11 @@
 describe "platforms", ->
 	describe "javascript", ->
 		describe "resultGenerator", ->
-			resultGenerator = undefined
+			resultGenerator = options = undefined
 			beforeEach ->
 				resultGenerator = require "./resultGenerator"
+				options = 
+					outputTypeName: "testOutputTypeName"
 			describe "imports", ->
 				it "codeCache", ->
 					expect(resultGenerator.codeCache).toBe require "./codeCache"
@@ -29,11 +31,11 @@ describe "platforms", ->
 											propertyABA: "Test Property ABA"
 							propertyB: "Test Property B"
 							
-					result = resultGenerator "Test Platform", "Test Cache", output
+					result = resultGenerator "Test Platform", "Test Cache", output, options
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						\treturn {
+						\treturn (testOutputTypeName) {
 						\t	.propertyA = {
 						\t		.propertyAA = Test Code AA,
 						\t		.propertyAB = {
@@ -53,9 +55,9 @@ describe "platforms", ->
 					
 					output = {}
 							
-					result = resultGenerator "Test Platform", "Test Cache", output
+					result = resultGenerator "Test Platform", "Test Cache", output, options
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						\treturn Test Code;
+						\treturn (testOutputTypeName) Test Code;
 											"""					
