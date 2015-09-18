@@ -1,6 +1,6 @@
 {
   "name": "sunruse-influx-platforms-c",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A platform implementation for SUNRUSE.influx which generates C source code.",
   "main": "deploy/types.js",
   "dependencies": {

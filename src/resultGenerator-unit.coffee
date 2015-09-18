@@ -33,15 +33,15 @@ describe "platforms", ->
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						{
-							.propertyA = {
-								.propertyAA = Test Code AA,
-								.propertyAB = {
-									.propertyABA = Test Code ABA
-								}
-							},
-							.propertyB = Test Code B
-						};
+						\treturn {
+						\t	.propertyA = {
+						\t		.propertyAA = Test Code AA,
+						\t		.propertyAB = {
+						\t			.propertyABA = Test Code ABA
+						\t		}
+						\t	},
+						\t	.propertyB = Test Code B
+						\t};
 											"""
 				it "returns the generated code given non-properties", ->
 					codeCache = resultGenerator.codeCache
@@ -57,5 +57,5 @@ describe "platforms", ->
 					resultGenerator.codeCache = codeCache
 									
 					expect(result).toEqual 	"""
-						Test Code;
+						\treturn Test Code;
 											"""					

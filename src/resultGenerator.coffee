@@ -20,6 +20,6 @@ module.exports = (platform, cache, output) ->
 		else
 			final.push indents + prefix + (module.exports.codeCache platform, cache, val) + suffix
 	
-	recurseResults output, "", "", ";"
+	recurseResults output, "return ", "\t", ";"
 	final.join "\n"
 module.exports.codeCache = require "./codeCache"

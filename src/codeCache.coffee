@@ -35,7 +35,7 @@ module.exports = (platform, cache, value) ->
 		created = 
 			code: "temp_" + greatest
 			value: value
-			working: value.native.function.output + " temp_" + greatest + " = " + generated + ";"
+			working: "\t" + value.native.function.output + " temp_" + greatest + " = " + generated + ";"
 		cache.push created
 		return created.code
 

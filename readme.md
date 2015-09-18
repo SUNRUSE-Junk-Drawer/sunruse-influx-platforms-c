@@ -9,17 +9,28 @@ A platform implementation for SUNRUSE.influx which generates C(99) source code. 
 				test4 5.7
 				test5 3
 				
-This compiles to:
+With the options:
 
     {
-		.test1 = input.a.b,
-		.test2 = true,
-		.nested = {
-			.test3 = false,
-			.test4 = 5.7,
-			.test5 = 3
-		}
-	};
+		"functionName": "testFunction",
+		"inputTypeName": "functionInput"
+		"outputTypeName": "functionOutput"
+	}
+				
+This compiles to:
+
+	functionOutput testFunction(const functionInput input)
+    {
+		return (functionOutput) {
+			.test1 = input.a.b,
+			.test2 = true,
+			.nested = {
+				.test3 = false,
+				.test4 = 5.7,
+				.test5 = 3
+			}
+		};
+	}
 	
 You can therefore use the generated source code by creating the input/output types as structs, creating the function header/footer and including the generated code using the preprocessor:
 
@@ -43,6 +54,4 @@ You can therefore use the generated source code by creating the input/output typ
 		nestedFunctionOutput nested;
 	};
 
-	functionOutput helloWorld(functionInput input) {
-		return (functionOutput) #include "path/to/generated/code.c"
-	}
+	#include "path/to/generated/code.c"

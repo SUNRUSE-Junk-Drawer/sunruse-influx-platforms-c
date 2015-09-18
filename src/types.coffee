@@ -27,12 +27,24 @@ module.exports = ->
 			equal: (a, b) -> a == b
 			assertionPass: true
 	functions: []
-	compile: (platform, input, output) ->
+	compile: (platform, input, output, options) ->
+		if not options then throw
+			reason: "optionsRequired"
+			
+		if not options.functionName then throw
+			reason: "functionNameRequired"
+		
+		if not options.inputTypeName then throw
+			reason: "inputTypeNameRequired"
+		
+		if not options.outputTypeName then throw
+			reason: "outputTypeNameRequired"
+		
 		cache = module.exports.parameterCache input
-		result = module.exports.resultGenerator platform, cache, output
+		result = module.exports.resultGenerator platform, cache, output, options
 		working = (cached.working for cached in cache when cached.working).join "\n"
 		if working then working += "\n"
-		result = working + result
+		result = options.outputTypeName + " " + options.functionName + "(const " + options.inputTypeName + " input) {\n" + working + "" + (result) + "\n}"
 		result
 		
 module.exports.parameterCache = require "./parameterCache"

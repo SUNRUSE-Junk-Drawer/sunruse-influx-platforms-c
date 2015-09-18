@@ -149,7 +149,7 @@ describe "platforms", ->
 							expect(cache[0]).toBe existingA
 							expect(cache[1]).toBe existingB
 							expect(cache[2]).toBe existingC
-							expect(cache[3].working).toEqual "testOutputType temp_0 = Test Generated Code;"
+							expect(cache[3].working).toEqual "\ttestOutputType temp_0 = Test Generated Code;"
 							expect(cache[3].value).toBe input
 							expect(cache[3].code).toEqual "temp_0"
 					describe "when code was previously generated", ->
@@ -177,7 +177,7 @@ describe "platforms", ->
 							expect(cache[0]).toBe existingA
 							expect(cache[1]).toBe existingB
 							expect(cache[2]).toBe existingC
-							expect(cache[3].working).toEqual "testOutputType temp_2 = Test Generated Code;"
+							expect(cache[3].working).toEqual "\ttestOutputType temp_2 = Test Generated Code;"
 							expect(cache[3].value).toBe input
 							expect(cache[3].code).toEqual "temp_2"
 					describe "when no code was previously generated but some is recursively", ->
@@ -207,7 +207,7 @@ describe "platforms", ->
 							expect(cache[2]).toBe existingC
 							expect(cache[3]).toBe existingD
 							expect(cache[4]).toBe existingE
-							expect(cache[5].working).toEqual "testOutputType temp_1 = Test Generated Code;"
+							expect(cache[5].working).toEqual "\ttestOutputType temp_1 = Test Generated Code;"
 							expect(cache[5].value).toBe input
 							expect(cache[5].code).toEqual "temp_1"
 					describe "when code was previously generated", ->
@@ -241,6 +241,6 @@ describe "platforms", ->
 							expect(cache[2]).toBe existingC
 							expect(cache[3]).toBe existingD
 							expect(cache[4]).toBe existingE
-							expect(cache[5].working).toEqual "testOutputType temp_3 = Test Generated Code;"
+							expect(cache[5].working).toEqual "\ttestOutputType temp_3 = Test Generated Code;"
 							expect(cache[5].value).toBe input
 							expect(cache[5].code).toEqual "temp_3"
